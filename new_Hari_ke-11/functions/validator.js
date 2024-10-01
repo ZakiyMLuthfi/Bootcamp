@@ -7,11 +7,17 @@ const ErrorType = {
 };
 
 function validateData(name, email, mobile) {
+  if (!name || name.trim() === "") {
+    return "Nama wajib diisi";
+  }
   if (!val.isAlpha(name, "en-US", { ignore: " " })) {
     return ErrorType.INVALID_NAME;
   }
   if (email && !val.isEmail(email)) {
     return ErrorType.INVALID_EMAIL;
+  }
+  if (!mobile || mobile.trim() === "") {
+    return "Nomor telepon wajib diisi";
   }
   if (!val.isMobilePhone(mobile, "id-ID")) {
     return ErrorType.INVALID_MOBILE;

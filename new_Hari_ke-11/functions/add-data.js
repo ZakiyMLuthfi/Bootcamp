@@ -12,6 +12,7 @@ const yargs = require("yargs");
 const { error } = require("node:console");
 
 const fs = require("fs/promises");
+const { debugLog } = require("./debugger.js");
 
 async function addContact(contact) {
   try {
@@ -45,10 +46,11 @@ async function addContact(contact) {
       null,
       2
     );
+    debugLog("mendorong kontak");
     console.log(`Kontak ${contact.name} berhasil ditambahkan!`);
     return "Kontak berhasil ditambahkan!";
   } catch (err) {
-    console.error("Error saving file", err);
+    console.error("Error saving file", err.message);
     throw err; //Lempar error agar bisa ditangani di tempat lain(file js utama)
   }
 }

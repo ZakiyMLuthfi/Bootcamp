@@ -1,0 +1,5 @@
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile D:/Javascript-geeksfarm-projet/.ssh/id_rsa
+  PreferredAuthentications publickey

@@ -1,7 +1,7 @@
 const readline = require('node:readline');
 
 const {stdin:input,stdout:output} = require("node:process");
-const { writeFileSync } = require('node:fs');
+const { writeFileSync, readFileSync } = require('node:fs');
 
 const rl = readline.createInterface({input, output});
 
@@ -12,11 +12,18 @@ rl.question('Sebutkan nama: ', (nama) => {
     rl.question('Sebutkan nomor: ', (nomor) =>{
         rl.question('Sebutkan email: ', (email) =>{
             if(val.isAlphanumeric(nama) && (val.isMobilePhone(nomor) && (val.isEmail(email)))) {
-                const data = `Nama kamu adalah ${nama} \nNomor kamu adalah ${nomor} \nEmail kamu adalah ${email}`;
-                writeFileSync('Hari-ke-3/hasil_tugas_3.txt', data);
-                console.log("Data kamu telah tersimpan");
+                const result = {nama,nomor,email};
 
-            rl.close();
+                const file = readFileSync('Hari-ke-3/data/contacts.json', 'utf-8');
+                // parsing dan push adalah combine data
+                const contacts = JSON.parse(file);
+                contacts.push(result);
+
+                writeFileSync('Hari-ke-3/data/contacts.json', JSON.stringify(contacts));
+                
+
+                console.log("Data kamu telah tersimpan");
+            // menutup interface redline
             } else {
                 if (val.isAlphanumeric(nama) === false)
                 console.log("Nama kamu salah");
@@ -27,6 +34,7 @@ rl.question('Sebutkan nama: ', (nama) => {
                 if(val.isEmail(email) === false)
                 console.log("Email kamu salah");
         }
+
             rl.close();
             
             });

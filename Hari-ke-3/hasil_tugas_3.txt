@@ -1,3 +1,6 @@
-Nama kamu adalah Zakiy 
-Nomor kamu adalah 081180808000 
-Email kamu adalah zakiymluthfi@gmail.com
+{
+  "nama": "Zakiy",
+  "nomor": "083195206066",
+  "email": "zakiymluthfi@gmail.com"
+}
+

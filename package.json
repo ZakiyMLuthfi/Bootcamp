@@ -1,0 +1,24 @@
+{
+  "name": "javascript-geeksfarm-projet",
+  "version": "1.0.0",
+  "description": "Memulai NPM",
+  "main": "readline.js",
+  "scripts": {
+    "start": "node Hari-ke-3/tes",
+    "fol": "ls",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zakiy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.13.0",
+    "validator": "^13.12.0",
+    "yargs": "^17.7.2"
+  },
+  "keywords": []
+}

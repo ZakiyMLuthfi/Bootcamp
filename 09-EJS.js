@@ -20,7 +20,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  fs.readFile("./views/data/contacs.json", "utf-8", (err, file) => {
+  fs.readFile("./views/data/contacts.json", "utf-8", (err, file) => {
     let contacts = [];
     let errorMessage = "File tidak ada";
     if (!err) {

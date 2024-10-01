@@ -10,26 +10,26 @@ const val = require("validator");
 const yargs = require("yargs");
 const { error } = require("node:console");
 
+const ErrorType = {
+  INVALID_EMAIL: "Alamat email tidak valid",
+  INVALID_NAME: "Nama anda salah",
+  INVALID_MOBILE: "Nomor telepon tidak sesuai",
+};
+
 function validateData(name, email, mobile) {
-  if (!val.isAlpha(name)) {
-    console.log("Nama kamu salah");
-    return false;
+  if (!val.isAlpha(name, "en-US", { ignore: " " })) {
+    return ErrorType.INVALID_NAME;
   }
-  if (email) {
-    if (!val.isEmail(email)) {
-      console.log("Email kamu salah");
-      return false;
-    }
+  if (email && !val.isEmail) {
+    return ErrorType.INVALID_EMAIL;
   }
   if (!val.isMobilePhone(mobile, "id-ID")) {
-    console.log("Nomor kamu salah");
-    return false;
+    return ErrorType.INVALID_MOBILE;
   }
-
   return true;
 }
 
-function validateData2(name, contacts) {
+function isNameExist(name, contacts) {
   const existingContact = contacts.find(
     (contact) => contact.name.toLowerCase() == name.toLowerCase()
   );
@@ -74,9 +74,8 @@ yargs.command({
         try {
           const file = readFileSync("Hari-ke-5/data/contacts.json", "utf-8");
           contacts = JSON.parse(file);
-          if (validateData2(contact.name, contacts)) {
+          if (isNameExist(contact.name, contacts)) {
             contacts.push(contact);
-            console.log("Data berhasil tersimpan!");
           }
         } catch (err) {
           console.error("File mungkin belum ada", err);

@@ -3,20 +3,17 @@ const path = require("path");
 const app = express();
 const port = 3000;
 
-// Mengatur direktori statis untuk file HTML
-// app.use(express.static(path.join(__dirname, "Hari-ke-10", "html")));
-
 // Rute khusus untuk file HTML
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "Hari-ke-10", "html", "index.html"));
+  res.sendFile(path.join(__dirname, "Hari-ke-11", "html", "index.html"));
 });
 
 app.get("/about", (req, res) => {
-  res.sendFile(path.join(__dirname, "Hari-ke-10", "html", "about.html"));
+  res.sendFile(path.join(__dirname, "Hari-ke-11", "html", "about.html"));
 });
 
 app.get("/contact", (req, res) => {
-  res.sendFile(path.join(__dirname, "Hari-ke-10", "html", "contact.html"));
+  res.sendFile(path.join(__dirname, "Hari-ke-11", "html", "contact.html"));
 });
 
 app.use("/product/:prodID", (req, res) => {

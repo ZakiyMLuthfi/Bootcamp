@@ -5,11 +5,13 @@ const port = 3000;
 const fs = require("fs");
 const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
+
 const {
   addContact,
   updateContact,
   deleteContact,
 } = require("./functions/add-data");
+const { debugLog } = require("./functions/debugger");
 
 app.set("view engine", "ejs");
 app.use(expressLayouts);
@@ -43,15 +45,14 @@ app.get("/about", (req, res) => {
 app.post("/add-contact", async (req, res) => {
   const { name, email, mobile } = req.body;
   try {
-    await addContact({ name, email, mobile });
+    await addContact({
+      name,
+      email,
+      mobile,
+    });
     res.status(200).send("Kontak berhasil ditambahkan");
-  } catch (err) {
-    console.error(err);
-    if (err.message.includes("data sudah ada")) {
-      res.status(400).send(err.message);
-    } else {
-      res.status(500).send("Gagal menambahkan kontak");
-    }
+  } catch (error) {
+    res.status(400).send(error.message);
   }
 });
 
@@ -65,7 +66,7 @@ app.put("/update-contact", async (req, res) => {
     res.status(200).send("Kontak berhasil diperbarui kang");
   } catch (error) {
     console.error("Gagal memperbarui kontak", error);
-    res.status(500).send("Gagal memperbarui kontak");
+    res.status(400).send(error.message);
   }
 });
 
