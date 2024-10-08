@@ -1,0 +1,45 @@
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.gallery-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  height: auto;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.masonry-gallery {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.masonry-column {
+  flex: 1;
+  min-width: 500px;
+  padding: 5px;
+}
+
+.masonry-item {
+  width: 100%;
+  margin: 5px;
+}
+
+.masonry-item img {
+  width: 100%; /* Gambar akan mengambil seluruh lebar kolom */
+  display: block;
+  object-fit: cover;
+}
+
+/* @media (max-width: 768px) {
+  .masonry-gallery {
+    flex-direction: column;
+  }
+} */
