@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link dari react-router-dom
 import UseEffectClock from "./useEffectClock";
 
 const Nav = () => {
@@ -24,44 +25,49 @@ const Nav = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <Link className="nav-link active" to="/">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/about">
+                <Link className="nav-link" to="/about">
                   About
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/contact">
+                <Link className="nav-link" to="/contact">
                   Contact
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/youtube">
+                <Link className="nav-link" to="/youtube">
                   Youtube
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/image-search">
+                <Link className="nav-link" to="/image-search">
                   Image
-                </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/my-form">
+                  MyForm
+                </Link>
               </li>
             </ul>
           </div>
         </nav>
         <style>
           {`
-                        .nav-link {
-                            transition: all 0.3s ease; /* Transisi halus untuk semua properti */
-                        }
+            .nav-link {
+              transition: all 0.3s ease; /* Transisi halus untuk semua properti */
+            }
 
-                        .nav-link:hover {
-                            transform: scale(1.1); /* Membesarkan link saat hover */
-                            color: #007bff; /* Mengubah warna saat hover */
-                        }
-                    `}
+            .nav-link:hover {
+              transform: scale(1.1); /* Membesarkan link saat hover */
+              color: #007bff; /* Mengubah warna saat hover */
+            }
+          `}
         </style>
       </header>
     </>
